@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import timer from '../assets/timer.svg'
+import timer from '../assets/Timer.svg'
 import icon from '../assets/icon.jpg'
 import running from "../assets/running.gif"
 
