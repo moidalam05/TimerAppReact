@@ -48,14 +48,14 @@ const Timer = () => {
     }
 
     return (
-        <div className='w-3/4 flex justify-center items-center bg-slate-500 p-10 gap-10 rounded-lg shadow-lg text-white'>
-            <div>
-                <img src={timer} alt="timer" className='min-h-full h-[75%] ' />
+        <div className='md:w-3/4 w-[300px] flex justify-center items-center bg-slate-500 p-10 gap-10 rounded-lg shadow-lg text-white'>
+            <div className='hidden lg:block'>
+                <img src={timer} alt="timer" className='lg:w-[600px]' />
             </div>
             <div>
                 <div className='flex justify-center flex-col items-center'>
-                    <div className='border-2 border-slate-400 h-72 w-72 flex justify-center items-center rounded-full flex-col'>
-                        <div className='w-28 h-28 rounded-3xl overflow-hidden mb-6'>
+                    <div className='border-2 border-slate-400 h-56 w-56 md:h-72 md:w-72 flex justify-center items-center rounded-full flex-col'>
+                        <div className='h-20 w-20 md:w-28 md:h-28 rounded-3xl overflow-hidden mb-6'>
                             <img src={isRunning} alt="icon" />
                         </div>
                         <h1 className='text-4xl font-bold'>
@@ -64,10 +64,10 @@ const Timer = () => {
                             {time.second < 10 ? `0${time.second}` : time.second}
                         </h1>
                     </div>
-                    <div className='flex gap-6 mt-10'>
-                        <button onClick={startTimer} className='bg-slate-400 transition-transform duration-150 text-white cursor-pointer font-bold py-2 px-10 rounded active:scale-95'>Start</button>
-                        <button onClick={stopTimer} className='bg-slate-400 transition-transform duration-150 text-white cursor-pointer font-bold py-2 px-10 rounded active:scale-95'>Stop</button>
-                        <button onClick={clearTimer} className='bg-slate-400 transition-transform duration-150 text-white cursor-pointer font-bold py-2 px-10 rounded active:scale-95'>Reset</button>
+                    <div className='flex gap-4 md:gap-6 mt-10'>
+                        <button onClick={startTimer} className='bg-slate-400 transition-transform duration-150 text-white cursor-pointer font-bold py-2 px-5 md:px-10 rounded active:scale-95'>Start</button>
+                        <button onClick={stopTimer} className='bg-slate-400 transition-transform duration-150 text-white cursor-pointer font-bold py-2 px-5 md:px-10 rounded active:scale-95'>Stop</button>
+                        <button onClick={clearTimer} className='bg-slate-400 transition-transform duration-150 text-white cursor-pointer font-bold py-2 px-5 md:px-10 rounded active:scale-95'>Reset</button>
                     </div>
                 </div>
             </div>
