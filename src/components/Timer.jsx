@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
 import timer from '../assets/timer.svg'
+import icon from '../assets/icon.jpg'
+import running from "../assets/running.gif"
 
 let interval = null;
 
 const Timer = () => {
     const [time, setTime] = useState({ second: 0, minute: 0, hour: 0 });
     const [isActive, setIsActive] = useState(false);
+    const [isRunning, setIsRunning] = useState(icon);
 
     function startTimer() {
         if (!isActive) {
             setIsActive(true);
+            setIsRunning(running);
             interval = setInterval(() => {
                 setTime((prevTime) => {
                     let newSecond = prevTime.second + 1;
@@ -34,11 +38,13 @@ const Timer = () => {
     function stopTimer() {
         setIsActive(false);
         clearInterval(interval);
+        setIsRunning(icon);
     }
 
     function clearTimer() {
         stopTimer();
         setTime({ second: 0, minute: 0, hour: 0 });
+        setIsRunning(icon);
     }
 
     return (
@@ -48,7 +54,10 @@ const Timer = () => {
             </div>
             <div>
                 <div className='flex justify-center flex-col items-center'>
-                    <div className='border-2 border-slate-400 h-56 w-56 flex justify-center items-center rounded-full'>
+                    <div className='border-2 border-slate-400 h-72 w-72 flex justify-center items-center rounded-full flex-col'>
+                        <div className='w-28 h-28 rounded-3xl overflow-hidden mb-6'>
+                            <img src={isRunning} alt="icon" />
+                        </div>
                         <h1 className='text-4xl font-bold'>
                             {time.hour < 10 ? `0${time.hour}` : time.hour}:
                             {time.minute < 10 ? `0${time.minute}` : time.minute}:
